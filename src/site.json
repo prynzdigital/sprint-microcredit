@@ -22,7 +22,8 @@
     "country": "GH"
   },
   "mapQuery": "306L Orinoco Close, Lakeside Estate, Ashale Botwe, Accra, Ghana",
-  "hoursLabel": "Mon – Fri, 8:00am – 5:00pm",
+  "hoursLabel": "Mon – Fri, 8:30am – 5:00pm",
+  "hoursTimes": "8:30am – 5:00pm",
   "hours": [
     {
       "days": [
@@ -32,7 +33,7 @@
         "Thursday",
         "Friday"
       ],
-      "opens": "08:00",
+      "opens": "08:30",
       "closes": "17:00"
     }
   ],

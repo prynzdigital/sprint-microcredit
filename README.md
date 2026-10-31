@@ -57,7 +57,7 @@ Still assumptions. Update them in `src/site.json` or the named page:
 2. **Rate basis:** 4.5% is treated as *flat per month on the amount borrowed*. If it's charged differently, the calculators and the "What you'll pay" example need changing.
 3. **Affordability guideline:** `calc.affordComfortablePct` (30) and `calc.affordStretchPct` (40). This is a general guide, not Sprint's lending rule; set your own thresholds here.
 4. **Loan limits and term:** `calc.min` / `calc.max` (GH₵500–20,000) and `minMonths` / `maxMonths` (1–12).
-5. **Office hours:** `hoursLabel` and `hours` (Mon–Fri 8am–5pm, weekends shown as closed). If you change them, also update the two weekend rows in the hours table on the Contact page.
+5. **Office hours:** `hoursLabel`, `hoursTimes` and `hours` (Mon–Fri 8:30am–5pm, weekends shown as closed). If weekend hours change, also update the two weekend rows in the hours table on the Contact page.
 6. **Licence and registration:** add your Bank of Ghana licence number, if applicable. MCAG membership is taken from the 2023 MCAG good-standing list.
 7. **Claims** such as "same-day payout" and "no hidden charges": keep them only if they hold in practice.
 
