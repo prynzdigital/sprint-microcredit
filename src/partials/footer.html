@@ -1,0 +1,74 @@
+<section class="cta-band">
+  <div class="container cta-band-inner">
+    <div class="cta-phone" aria-hidden="true"><!--img src="phone-call" alt="" sizes="74px"--></div>
+    <div>
+      <h2>Need money today? Let’s talk.</h2>
+      <p>Speak to a real person at Sprint. No queues, no long forms, a clear answer the same day.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn-cta btn-lg" href="/apply/">Start my application</a>
+      <a class="btn btn-wa btn-lg" href="{{site.waLink}}?text=Hello%20Sprint%20Micro-Credit%2C%20I%27d%20like%20to%20ask%20about%20a%20loan." target="_blank" rel="noopener">WhatsApp us</a>
+    </div>
+  </div>
+</section>
+<footer class="site-footer">
+  <div class="kente" aria-hidden="true"></div>
+  <div class="container footer-grid">
+    <div class="footer-brand">
+      <a class="brand brand-plate" href="/" aria-label="{{site.name}} home">
+        <picture><source type="image/webp" srcset="/assets/img/logo-sprint.webp"><img class="brand-logo" src="/assets/img/logo-sprint.png" alt="{{site.name}}" width="{{site.logo.w}}" height="{{site.logo.h}}" loading="lazy"></picture>
+      </a>
+      <p>Quick, flexible and convenient emergency loans for salaried workers in Ghana since {{site.foundingYear}}.</p>
+      <p class="footer-badge">Member, {{site.association}}</p>
+    </div>
+    <div>
+      <h3>Loans</h3>
+      <ul>
+        <li><a href="/loans/">Emergency loans</a></li>
+        <li><a href="/loans/#requirements">Requirements</a></li>
+        <li><a href="/loan-calculator/">Loan calculator</a></li>
+        <li><a href="/apply/">Apply now</a></li>
+      </ul>
+    </div>
+    <div>
+      <h3>Learn</h3>
+      <ul>
+        <li><a href="/learn/how-to-budget-your-salary/">Budget your salary</a></li>
+        <li><a href="/learn/flat-rate-vs-reducing-balance/">Understand interest</a></li>
+        <li><a href="/learn/borrow-responsibly/">Borrow responsibly</a></li>
+        <li><a href="/learn/avoid-loan-scams-in-ghana/">Avoid loan scams</a></li>
+        <li><a href="/learn/build-an-emergency-fund/">Emergency fund</a></li>
+      </ul>
+    </div>
+    <div class="footer-contact">
+      <h3>Visit or call</h3>
+      <address>
+        {{site.address.street}}, {{site.address.locality}}<br>{{site.address.city}}, Ghana<br>
+        <a href="tel:{{site.phoneIntl}}">{{site.phoneDisplayIntl}}</a><br>
+        <a href="mailto:{{site.email}}">{{site.email}}</a><br>
+        {{site.hoursLabel}}
+      </address>
+      <div class="social">
+        <a href="{{site.facebook}}" target="_blank" rel="noopener" aria-label="Sprint Micro-Credit on Facebook">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M13.5 22v-8h2.7l.4-3.2h-3.1V8.8c0-.9.3-1.5 1.6-1.5h1.7V4.4c-.3 0-1.3-.1-2.4-.1-2.4 0-4 1.4-4 4.1v2.4H7.7V14h2.7v8h3.1z"/></svg>
+        </a>
+        <a href="{{site.linkedin}}" target="_blank" rel="noopener" aria-label="Sprint Micro-Credit on LinkedIn">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9.5h4V21H3zM9.5 9.5h3.8v1.6h.1c.5-1 1.8-2 3.8-2 4 0 4.8 2.6 4.8 6V21h-4v-5.1c0-1.2 0-2.8-1.7-2.8s-2 1.3-2 2.7V21h-4z"/></svg>
+        </a>
+        <a href="{{site.waLink}}" target="_blank" rel="noopener" aria-label="Chat with Sprint Micro-Credit on WhatsApp">
+          <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>
+        </a>
+      </div>
+    </div>
+  </div>
+  <div class="container footer-bottom">
+    <p>© {{site.year}} {{site.legalName}}. All rights reserved.</p>
+    <p><a href="/privacy/">Privacy</a> · <a href="/sitemap.xml">Sitemap</a></p>
+  </div>
+</footer>
+<nav class="action-bar" aria-label="Quick actions">
+  <a href="tel:{{site.phoneIntl}}"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M6.6 10.8a15.1 15.1 0 0 0 6.6 6.6l2.2-2.2c.3-.3.7-.4 1-.2 1.1.4 2.3.6 3.6.6.6 0 1 .4 1 1V20c0 .6-.4 1-1 1A17 17 0 0 1 3 4c0-.6.4-1 1-1h3.5c.6 0 1 .4 1 1 0 1.3.2 2.5.6 3.6.1.3 0 .7-.2 1z"/></svg>Call</a>
+  <a href="{{site.waLink}}" target="_blank" rel="noopener"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm4.5 12.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.4l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5c-.2 0-.4.1-.7.3-.2.3-.9.9-.9 2.2s.9 2.5 1 2.7c.1.2 1.8 2.8 4.4 3.9 1.6.7 2.3.8 3.1.6.5-.1 1.5-.6 1.7-1.2.2-.6.2-1.1.2-1.2-.1-.1-.3-.2-.5-.3z"/></svg>WhatsApp</a>
+  <a href="/loan-calculator/"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M7 2h10a2 2 0 0 1 2 2v16a2 2 0 0 1-2 2H7a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2zm0 2v4h10V4zm1 7v2h2v-2zm4 0v2h2v-2zm4 0v6h2v-6zm-8 4v2h2v-2zm4 0v2h2v-2z"/></svg>Calculate</a>
+  <a class="action-primary" href="/apply/"><svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M13 3 4 14h7l-1 7 9-11h-7z"/></svg>Apply</a>
+</nav>

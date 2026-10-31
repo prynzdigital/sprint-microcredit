@@ -1,0 +1,103 @@
+---
+{
+  "title": "Apply for a Quick Loan Online | Sprint Micro-Credit Ghana",
+  "description": "Apply for a same-day emergency loan with Sprint Micro-Credit in minutes. Fill a short form and send it to us on WhatsApp or email. No paperwork to start.",
+  "path": "/apply/",
+  "crumbs": [["Apply", "/apply/"]],
+  "priority": "0.9"
+}
+---
+<section class="page-hero">
+  <div class="container">
+    <h1>Start your loan application</h1>
+    <p class="lead">Two minutes, sent straight to our WhatsApp.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container split split-wide" style="align-items:start">
+    <aside class="reveal">
+      <figure class="media ar-3-2" style="margin:0 0 16px">
+        <!--img src="staff-duo" alt="Two smiling Sprint Micro-Credit staff members in branded t-shirts" sizes="(min-width: 960px) 460px, 100vw" pos="50% 30%"-->
+        <span class="media-badge">A real person will call you back</span>
+      </figure>
+      <div class="card" style="margin-bottom:16px">
+        <h2 class="h3" style="font-size:1.25rem">What happens next</h2>
+        <ol class="steps">
+          <li><span class="step-dot"><!--icon send--></span><div><h3>Send your request</h3><p>Your details go straight to our WhatsApp.</p></div></li>
+          <li><span class="step-dot"><!--icon phone--></span><div><h3>We call you back</h3><p>We confirm your details and the documents needed.</p></div></li>
+          <li><span class="step-dot"><!--icon cash--></span><div><h3>Same-day payout</h3><p>After verification and signing.</p></div></li>
+        </ol>
+      </div>
+      <div class="callout callout-brand"><p><!--icon lock--> <strong>Your privacy:</strong> this form doesn’t store anything on our website. Your details only leave your phone when you press Send in WhatsApp or your email app.</p></div>
+      <p class="muted">Rather talk? Call <a href="tel:{{site.phoneIntl}}"><strong>{{site.phoneDisplayIntl}}</strong></a> · {{site.hoursLabel}}</p>
+    </aside>
+
+    <form class="tool reveal" data-apply novalidate>
+      <div class="form-grid">
+        <div class="field span-2">
+          <label for="f-name">Full name (as on Ghana Card)</label>
+          <input id="f-name" class="input" name="fullname" autocomplete="name" required>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-phone">Phone / WhatsApp number</label>
+          <input id="f-phone" class="input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="024 123 4567" required>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-contact">Best way to reach you</label>
+          <select id="f-contact" class="input" name="contactPref">
+            <option>WhatsApp</option><option>Phone call</option><option>Either</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="f-employer">Employer</label>
+          <input id="f-employer" class="input" name="employer" autocomplete="organization" placeholder="e.g. ABC Bank" required>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-type">Employer type</label>
+          <select id="f-type" class="input" name="employerType" required>
+            <option value="">Choose one…</option>
+            <option value="fi">Financial institution</option>
+            <option value="soe">State-owned enterprise (SOE)</option>
+            <option value="other">Other salaried employer</option>
+          </select>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-amount">Loan amount</label>
+          <div class="input-prefix"><span>GH₵</span><input id="f-amount" class="input" name="amount" type="number" inputmode="numeric" min="{{site.calc.min}}" max="{{site.calc.max}}" step="50" required></div>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="f-months">Repayment period</label>
+          <select id="f-months" class="input" name="months"></select>
+        </div>
+        <div class="field">
+          <label for="f-salary">Monthly take-home pay <span class="muted small">(optional)</span></label>
+          <div class="input-prefix"><span>GH₵</span><input id="f-salary" class="input" name="salary" type="number" inputmode="numeric" min="0"></div>
+        </div>
+        <div class="field">
+          <label for="f-purpose">Purpose <span class="muted small">(optional)</span></label>
+          <select id="f-purpose" class="input" name="purpose">
+            <option value="">Prefer not to say</option>
+            <option>Medical bills</option><option>School fees</option><option>Rent</option><option>Home repairs</option>
+            <option>Family emergency</option><option>Funeral</option><option>Business / investment</option><option>Other</option>
+          </select>
+        </div>
+        <div class="field span-2">
+          <label class="consent"><input type="checkbox" name="consent" required> <span>I agree that Sprint Micro-Credit may contact me about this request and process my details as described in the <a href="/privacy/">privacy notice</a>.</span></label>
+          <p class="field-error" role="alert"></p>
+        </div>
+      </div>
+      <button class="btn btn-wa btn-lg btn-block" type="submit">
+        <svg viewBox="0 0 24 24" width="22" height="22" aria-hidden="true"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+        Send application on WhatsApp
+      </button>
+      <button class="btn btn-ghost btn-block" type="button" style="margin-top:10px" data-apply-email>Send by email instead</button>
+      <div class="callout callout-brand" data-apply-done hidden><p><!--icon check--> <strong>Almost done!</strong> Press <strong>Send</strong> in WhatsApp. If WhatsApp didn’t open, call us on <a href="tel:{{site.phoneIntl}}">{{site.phone}}</a>.</p></div>
+    </form>
+  </div>
+</section>

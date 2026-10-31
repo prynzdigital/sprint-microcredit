@@ -1,0 +1,39 @@
+{
+  "name": "Sprint Micro-Credit",
+  "legalName": "Sprint Micro-Credit Enterprise",
+  "tagline": "Always Ahead",
+  "url": "https://sprintmicrocredit.com",
+  "foundingYear": "2019",
+  "founder": { "name": "Samuel Gbor", "title": "Chief Executive Officer" },
+  "phone": "059 211 1441",
+  "phoneIntl": "+233592111441",
+  "phoneDisplayIntl": "+233 59 211 1441",
+  "whatsapp": "233592111441",
+  "email": "info@sprintmicrocredit.com",
+  "address": {
+    "street": "Lakeside Estate",
+    "locality": "Ashaley Botwe",
+    "city": "Accra",
+    "region": "Greater Accra",
+    "country": "GH"
+  },
+  "mapQuery": "Lakeside Estate, Ashaley Botwe, Accra, Ghana",
+  "hoursLabel": "Mon – Fri, 8:00am – 5:00pm",
+  "hours": [
+    { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "17:00" }
+  ],
+  "facebook": "https://www.facebook.com/sprintmicrocredit/",
+  "linkedin": "https://gh.linkedin.com/company/sprint-micro-credit",
+  "association": "Micro-Credit Association of Ghana (MCAG)",
+  "calc": {
+    "min": 500,
+    "max": 20000,
+    "step": 100,
+    "defaultAmount": 3000,
+    "minMonths": 1,
+    "maxMonths": 12,
+    "defaultMonths": 6,
+    "monthlyRatePct": 5,
+    "rateNote": "Illustrative rate only. Your actual rate and fees are confirmed in writing in your offer before you sign."
+  }
+}

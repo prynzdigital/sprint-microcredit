@@ -1,0 +1,156 @@
+---
+{
+  "title": "Contact Sprint Micro-Credit | Call, WhatsApp or Visit Us in Ashaley Botwe, Accra",
+  "description": "Contact Sprint Micro-Credit on +233 59 211 1441 (call or WhatsApp), email info@sprintmicrocredit.com, or visit our office at Lakeside Estate, Ashaley Botwe, Accra.",
+  "path": "/contact/",
+  "crumbs": [["Contact", "/contact/"]],
+  "priority": "0.8",
+  "image": "team-desk"
+}
+---
+<section class="page-hero">
+  <div class="container">
+    <h1>Talk to a real person</h1>
+    <p class="lead">Call, WhatsApp or visit us in Ashaley Botwe, Accra.</p>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="channel-grid">
+      <a class="channel ch-call reveal" href="tel:{{site.phoneIntl}}">
+        <span class="ch-icon"><!--icon phone--></span>
+        <span class="ch-label">Call us</span>
+        <strong class="ch-value">{{site.phoneDisplayIntl}}</strong>
+        <span class="ch-note">{{site.hoursLabel}}</span>
+        <span class="ch-cta">Call now <!--icon arrow--></span>
+      </a>
+      <a class="channel ch-wa reveal" href="{{site.waLink}}?text=Hello%20Sprint%20Micro-Credit" target="_blank" rel="noopener">
+        <span class="ch-icon"><!--icon chat--></span>
+        <span class="ch-label">WhatsApp</span>
+        <strong class="ch-value">Chat with us</strong>
+        <span class="ch-note">Message anytime; we reply during office hours</span>
+        <span class="ch-cta">Open WhatsApp <!--icon arrow--></span>
+      </a>
+      <a class="channel ch-mail reveal" href="mailto:{{site.email}}">
+        <span class="ch-icon"><!--icon mail--></span>
+        <span class="ch-label">Email</span>
+        <strong class="ch-value">{{site.email}}</strong>
+        <span class="ch-note">For documents and detailed questions</span>
+        <span class="ch-cta">Send an email <!--icon arrow--></span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft" id="visit">
+  <div class="container">
+    <div class="office reveal">
+      <div class="office-card">
+        <div class="office-top">
+          <span class="eyebrow">Visit us</span>
+          <span class="open-status" data-open-status hidden></span>
+        </div>
+        <h2>Our office</h2>
+        <p class="office-address"><!--icon pin--> <span>{{site.address.street}}, {{site.address.locality}}<br>{{site.address.city}}, Ghana</span></p>
+        <table class="hours" aria-label="Office hours">
+          <tbody>
+            <tr data-days="1,2,3,4,5"><th scope="row">Monday – Friday</th><td>8:00am – 5:00pm</td></tr>
+            <tr data-days="6"><th scope="row">Saturday</th><td>Closed</td></tr>
+            <tr data-days="0"><th scope="row">Sunday</th><td>Closed</td></tr>
+          </tbody>
+        </table>
+        <div class="btn-row">
+          <a class="btn btn-cta" href="https://www.google.com/maps/dir/?api=1&amp;destination={{site.mapEmbed}}" target="_blank" rel="noopener"><!--icon pin--> Get directions</a>
+          <a class="btn btn-ghost" href="tel:{{site.phoneIntl}}"><!--icon phone--> Call ahead</a>
+        </div>
+      </div>
+      <div class="office-map">
+        <iframe title="Map to Sprint Micro-Credit, Ashaley Botwe" loading="lazy" referrerpolicy="no-referrer-when-downgrade"
+          src="https://maps.google.com/maps?q={{site.mapEmbed}}&amp;z=15&amp;output=embed"></iframe>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="message">
+  <div class="container split split-wide" style="align-items:start">
+    <div class="reveal msg-aside">
+      <span class="eyebrow">Send a message</span>
+      <h2>Have a question? Ask us directly.</h2>
+      <p class="lead">Write your message here and we’ll open WhatsApp or your email app with it ready to send.</p>
+      <figure class="media ar-3-2" style="margin:0">
+        <!--img src="staff-duo" alt="Two smiling Sprint Micro-Credit staff members in branded t-shirts" sizes="(min-width: 960px) 460px, 100vw" pos="50% 30%"-->
+        <span class="media-badge">A real person will reply</span>
+      </figure>
+    </div>
+    <form class="tool reveal" data-contact novalidate>
+      <div class="form-grid">
+        <div class="field">
+          <label for="m-name">Your name</label>
+          <input id="m-name" class="input" name="name" autocomplete="name" required>
+          <p class="field-error" role="alert"></p>
+        </div>
+        <div class="field">
+          <label for="m-phone">Phone <span class="muted small">(optional)</span></label>
+          <input id="m-phone" class="input" name="phone" type="tel" inputmode="tel" autocomplete="tel" placeholder="024 123 4567">
+        </div>
+        <div class="field span-2">
+          <span class="label">What is it about?</span>
+          <div class="chips topic-chips" role="group" aria-label="Topic">
+            <button type="button" class="chip" data-topic="New loan enquiry" aria-pressed="true">New loan</button>
+            <button type="button" class="chip" data-topic="My existing loan or repayment" aria-pressed="false">My loan</button>
+            <button type="button" class="chip" data-topic="Documents" aria-pressed="false">Documents</button>
+            <button type="button" class="chip" data-topic="Something else" aria-pressed="false">Other</button>
+          </div>
+        </div>
+        <div class="field span-2">
+          <label for="m-msg">Message</label>
+          <textarea id="m-msg" class="input" name="message" rows="4" placeholder="How can we help?" required></textarea>
+          <p class="field-error" role="alert"></p>
+        </div>
+      </div>
+      <button class="btn btn-wa btn-lg btn-block" type="submit"><!--icon chat--> Send on WhatsApp</button>
+      <button class="btn btn-ghost btn-block" type="button" style="margin-top:10px" data-contact-email><!--icon mail--> Send by email instead</button>
+      <p class="field-hint" style="margin:12px 0 0"><!--icon lock--> Nothing is stored on this website. Your message only leaves your phone when you press Send.</p>
+    </form>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="trust-grid">
+      <div class="safety-card reveal">
+        <span class="icon"><!--icon shield--></span>
+        <div>
+          <h3>Stay safe from impostors</h3>
+          <p>Our official line is <strong>{{site.phoneDisplayIntl}}</strong> and our email is <strong>{{site.email}}</strong>. We will never ask you to pay a fee upfront to “release” a loan.</p>
+          <a href="/learn/avoid-loan-scams-in-ghana/">Learn to spot loan scams <!--icon arrow--></a>
+        </div>
+      </div>
+      <div class="social-card reveal">
+        <h3>Follow Sprint</h3>
+        <p class="muted">News, money tips and updates from our team.</p>
+        <div class="social-links">
+          <a href="{{site.facebook}}" target="_blank" rel="noopener"><span class="icon"><!--icon like--></span><span><strong>Facebook</strong><small>@sprintmicrocredit</small></span></a>
+          <a href="{{site.linkedin}}" target="_blank" rel="noopener"><span class="icon icon-alt"><!--icon briefcase--></span><span><strong>LinkedIn</strong><small>Sprint Micro-Credit</small></span></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Contact questions</h2>
+    </div>
+    <div class="faq">
+      <details class="faq-item"><summary>Do I need to visit the office to get a loan?</summary><div><p>No. You can start on WhatsApp or by phone. We’ll tell you which documents to share and how to sign your agreement.</p></div></details>
+      <details class="faq-item"><summary>What are your office hours?</summary><div><p>Our office is open {{site.hoursLabel}}. You can send a WhatsApp message anytime and we’ll reply during office hours.</p></div></details>
+      <details class="faq-item"><summary>Where exactly is your office?</summary><div><p>We’re at {{site.address.street}}, {{site.address.locality}}, Accra. Tap “Get directions” above to open the route in Google Maps.</p></div></details>
+      <details class="faq-item"><summary>Someone contacted me claiming to be from Sprint. What should I do?</summary><div><p>Only trust {{site.phoneDisplayIntl}} and {{site.email}}. If anyone asks you to pay money to receive a loan, stop and call us on our official number to report it.</p></div></details>
+    </div>
+  </div>
+</section>

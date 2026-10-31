@@ -1,0 +1,20 @@
+# Build output (regenerate with: node build.mjs)
+dist/
+
+# Owner's source material: kept locally, never published.
+# The Word document contains private admin details.
+*.docx
+*.zip
+# Original photos, screenshots and video as supplied. Web-ready versions live in src/public/assets/.
+/*.jpg
+/*.jpeg
+/*.png
+/*.webp
+/*.mp4
+
+# Local tooling
+.claude/
+__pycache__/
+*.pyc
+.DS_Store
+Thumbs.db

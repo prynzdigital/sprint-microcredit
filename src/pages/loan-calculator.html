@@ -1,0 +1,92 @@
+---
+{
+  "title": "Loan Calculator Ghana (GH₵) | Monthly Repayment Estimator | Sprint Micro-Credit",
+  "description": "Free loan calculator in Ghana cedis. See your monthly repayment, total interest and full repayment schedule instantly, compare repayment periods, and check if the loan fits your salary.",
+  "path": "/loan-calculator/",
+  "crumbs": [["Loan calculator", "/loan-calculator/"]],
+  "priority": "0.9",
+  "image": "phone-laptop"
+}
+---
+<section class="page-hero">
+  <div class="container">
+    <h1>Loan calculator</h1>
+    <p class="lead">See your monthly repayment and total cost in cedis.</p>
+  </div>
+</section>
+
+<section class="section calc-page">
+  <div class="container">
+    <div class="calc-wide">
+      <!--include:calculator-->
+    </div>
+
+    <div class="plan reveal" data-plan>
+      <div class="plan-head">
+        <div>
+          <span class="eyebrow">Your repayment plan</span>
+          <h2 class="plan-title" data-out="summary">GH₵3,000 over 6 months</h2>
+        </div>
+        <a class="btn btn-cta" data-plan-apply href="/apply/">Apply for this loan <!--icon arrow--></a>
+      </div>
+
+      <div class="kpis" aria-live="polite">
+        <div class="kpi kpi-main"><span><!--icon calendar--> Monthly repayment</span><strong data-k="monthly">—</strong></div>
+        <div class="kpi"><span><!--icon trend--> Total interest</span><strong data-k="interest">—</strong></div>
+        <div class="kpi"><span><!--icon cash--> Total to repay</span><strong data-k="total">—</strong></div>
+        <div class="kpi"><span><!--icon calculator--> Cost per GH₵100</span><strong data-k="per100">—</strong></div>
+      </div>
+
+      <div class="plan-grid">
+        <div class="plan-panel">
+          <div class="plan-panel-head"><h3>Balance owed each month</h3><span class="small muted">Month →</span></div>
+          <div class="bars-chart" aria-hidden="true"></div>
+          <p class="small muted" style="margin:0">Each payday your balance drops by the same amount until it reaches zero.</p>
+        </div>
+        <div class="plan-panel">
+          <div class="plan-panel-head"><h3>Compare repayment periods</h3><span class="small muted">Tap to use</span></div>
+          <div class="terms" data-terms></div>
+          <p class="small muted" style="margin:12px 0 0">Shorter periods cost less in total; longer periods lower each payment.</p>
+        </div>
+      </div>
+
+      <details class="schedule-toggle">
+        <summary><!--icon doc--> Month-by-month schedule</summary>
+        <div class="table-wrap"><table><thead><tr><th>Month</th><th>Payment</th><th>Principal</th><th>Interest</th><th>Balance</th></tr></thead><tbody></tbody></table></div>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">Understand your numbers</span>
+      <h2>How to read your estimate</h2>
+    </div>
+    <div class="grid grid-4">
+      <div class="card card-hover reveal"><div class="icon"><!--icon calendar--></div><h3>Monthly repayment</h3><p class="muted">What leaves your account each payday, for the whole repayment period.</p></div>
+      <div class="card card-hover reveal"><div class="icon icon-alt"><!--icon trend--></div><h3>Interest</h3><p class="muted">The cost of borrowing, on top of the amount you receive.</p></div>
+      <div class="card card-hover reveal"><div class="icon"><!--icon cash--></div><h3>Total to repay</h3><p class="muted">Amount borrowed plus interest. Always compare this number between lenders.</p></div>
+      <div class="card card-hover reveal"><div class="icon icon-alt"><!--icon wallet--></div><h3>Affordability</h3><p class="muted">Keep all loan repayments under about 30% of your take-home pay.</p></div>
+    </div>
+    <div class="callout callout-brand reveal" style="max-width:820px;margin-inline:auto"><p>These estimates use a <strong>flat</strong> monthly rate of {{site.calc.monthlyRatePct}}% for illustration. Not sure what “flat” means? Read <a href="/learn/flat-rate-vs-reducing-balance/">flat rate vs reducing balance</a>.</p></div>
+  </div>
+</section>
+
+<section class="section faq-section" id="faq">
+  <div class="container">
+    <div class="section-head reveal">
+      <span class="eyebrow">FAQ</span>
+      <h2>Calculator questions</h2>
+      <p class="lead">Still unsure? We’re happy to walk you through your numbers.</p>
+      <a class="btn btn-wa" href="{{site.waLink}}?text=Hello%20Sprint%2C%20can%20you%20help%20me%20with%20my%20loan%20estimate%3F" target="_blank" rel="noopener"><!--icon chat--> Ask on WhatsApp</a>
+    </div>
+    <div class="faq">
+      <details class="faq-item"><summary>Is this the exact amount I will pay?</summary><div><p>It’s an estimate using an illustrative rate of {{site.calc.monthlyRatePct}}% per month. Your exact rate, fees and total repayable are confirmed in writing in your offer before you sign.</p></div></details>
+      <details class="faq-item"><summary>How much of my salary should go to loan repayments?</summary><div><p>As a rule of thumb, keep all your loan repayments together under about 30% of your take-home pay, so you still cover rent, food, transport and savings.</p></div></details>
+      <details class="faq-item"><summary>Does a longer repayment period cost more?</summary><div><p>Usually, yes. A longer period lowers each monthly payment but increases the total interest you pay. Choose the shortest period you can comfortably afford.</p></div></details>
+      <details class="faq-item"><summary>What does “cost per GH₵100” mean?</summary><div><p>It’s the interest you pay for every GH₵100 you borrow over the whole loan. It makes it easy to compare different amounts and repayment periods.</p></div></details>
+    </div>
+  </div>
+</section>

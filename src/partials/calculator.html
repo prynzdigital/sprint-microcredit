@@ -1,0 +1,47 @@
+<div class="tool" data-calc>
+  <div class="tool-head">
+    <div class="tool-title"><span class="icon"><!--icon calculator--></span><div><h2 class="h3" style="margin:0">Loan calculator</h2><span class="small muted">See your repayment in seconds</span></div></div>
+    <span class="tag tag-alt">Live</span>
+  </div>
+  <div class="field">
+    <div class="field-row"><label for="calc-amount">How much do you need?</label><output class="field-value" data-out="amount" for="calc-amount">GH₵3,000</output></div>
+    <input id="calc-amount" type="range" data-amount aria-describedby="calc-amount-hint">
+    <div class="field-row field-hint" id="calc-amount-hint"><span data-out="min">GH₵500</span><span data-out="max">GH₵20,000</span></div>
+    <div class="chips chips-4" style="margin-top:8px">
+      <button type="button" class="chip" data-preset="1000">GH₵1k</button>
+      <button type="button" class="chip" data-preset="3000">GH₵3k</button>
+      <button type="button" class="chip" data-preset="5000">GH₵5k</button>
+      <button type="button" class="chip" data-preset="10000">GH₵10k</button>
+    </div>
+  </div>
+  <div class="field">
+    <div class="field-row"><label for="calc-months">Pay back over</label><output class="field-value" data-out="months" for="calc-months">6 months</output></div>
+    <input id="calc-months" type="range" data-months>
+  </div>
+  <details class="field afford">
+    <summary><!--icon wallet--> Does it fit my salary?</summary>
+    <label for="calc-salary" class="small">Your monthly take-home pay</label>
+    <div class="input-prefix" style="margin-top:6px"><span>GH₵</span><input id="calc-salary" class="input" type="number" inputmode="numeric" min="0" placeholder="e.g. 4,500" data-salary></div>
+    <div class="meter" data-meter data-level="ok"><div class="meter-track"><div class="meter-fill"></div></div><p class="meter-msg">Enter your monthly take-home pay to check affordability.</p></div>
+  </details>
+  <div class="result" aria-live="polite">
+    <div class="result-top">
+      <div class="donut" data-donut role="img" aria-label="Breakdown of principal and interest">
+        <div class="donut-hole"><strong data-out="months-n">6</strong><span>months</span></div>
+      </div>
+      <div style="flex:1;min-width:0">
+        <div class="result-label">Estimated monthly repayment</div>
+        <div class="result-big" data-out="monthly">GH₵0</div>
+      </div>
+    </div>
+    <ul class="legend-dots">
+      <li><i class="dot-p"></i>Amount you receive <strong data-out="principal">—</strong></li>
+      <li><i class="dot-i"></i>Estimated interest <strong data-out="interest">—</strong></li>
+    </ul>
+    <div class="result-rows">
+      <div><span>Total to repay</span><strong data-out="total">—</strong></div>
+    </div>
+    <a class="btn btn-cta btn-block" data-apply-link href="/apply/">Apply for this loan <!--icon arrow--></a>
+  </div>
+  <p class="field-hint calc-note">Estimate uses <span data-out="rate">{{site.calc.monthlyRatePct}}%</span> per month, flat. {{site.calc.rateNote}}</p>
+</div>
