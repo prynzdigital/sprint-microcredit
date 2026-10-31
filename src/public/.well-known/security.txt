@@ -1,0 +1,5 @@
+# Report security issues with sprintmicrocredit.com
+Contact: mailto:info@sprintmicrocredit.com
+Expires: 2027-10-30T00:00:00.000Z
+Preferred-Languages: en
+Canonical: https://sprintmicrocredit.com/.well-known/security.txt

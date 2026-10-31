@@ -12,6 +12,7 @@ import { readFileSync, writeFileSync, mkdirSync, cpSync, rmSync, readdirSync, st
 import { join, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { createServer } from 'node:http';
+import { createHash } from 'node:crypto';
 
 const ROOT = dirname(fileURLToPath(import.meta.url));
 const SRC = join(ROOT, 'src');
@@ -246,8 +247,34 @@ function build() {
     `\n</urlset>\n`);
   writeFileSync(join(OUT, 'robots.txt'), `User-agent: *\nAllow: /\n\nSitemap: ${site.url}/sitemap.xml\n`);
 
+  checkCsp();
   console.log(`Built ${pages.length} pages -> dist/`);
 }
+
+// Every inline <script> in the output must be allowed by the CSP hash in vercel.json and .htaccess,
+// otherwise browsers would silently block it in production.
+function checkCsp() {
+  const policies = {
+    'vercel.json': JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8')).headers
+      .flatMap((h) => h.headers).find((h) => h.key === 'Content-Security-Policy')?.value || '',
+    '.htaccess': readFileSync(join(SRC, 'public', '.htaccess'), 'utf8'),
+  };
+  const hashes = new Set();
+  for (const f of walk(OUT).filter((p) => p.endsWith('.html'))) {
+    for (const [, attrs, body] of readFileSync(f, 'utf8').matchAll(/<script\b([^>]*)>([\s\S]*?)<\/script>/g)) {
+      if (/\bsrc=|application\/ld\+json/.test(attrs)) continue; // external files and JSON-LD data are fine
+      hashes.add(`'sha256-${createHash('sha256').update(body).digest('base64')}'`);
+    }
+  }
+  for (const h of hashes) {
+    for (const [file, policy] of Object.entries(policies)) {
+      if (!policy.includes(h)) throw new Error(`Inline script hash ${h} is missing from the Content-Security-Policy in ${file}`);
+    }
+  }
+}
+
+// Local preview applies the same response headers as vercel.json, so CSP problems show up before deploying.
+const vercelHeaders = () => JSON.parse(readFileSync(join(ROOT, 'vercel.json'), 'utf8')).headers || [];
 
 function serve(port = 8080) {
   const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css', '.js': 'text/javascript', '.svg': 'image/svg+xml', '.png': 'image/png', '.xml': 'application/xml', '.txt': 'text/plain', '.webmanifest': 'application/manifest+json', '.ico': 'image/x-icon' };
@@ -255,7 +282,11 @@ function serve(port = 8080) {
     let p = join(OUT, decodeURIComponent(req.url.split('?')[0]));
     if (existsSync(p) && statSync(p).isDirectory()) p = join(p, 'index.html');
     if (!existsSync(p)) { res.writeHead(404, { 'Content-Type': types['.html'] }); return res.end(readFileSync(join(OUT, '404.html'))); }
-    res.writeHead(200, { 'Content-Type': types[extname(p)] || 'application/octet-stream' });
+    const headers = { 'Content-Type': types[extname(p)] || 'application/octet-stream' };
+    for (const rule of vercelHeaders()) {
+      if (new RegExp(`^${rule.source}$`).test(req.url.split('?')[0])) for (const h of rule.headers) headers[h.key] = h.value;
+    }
+    res.writeHead(200, headers);
     res.end(readFileSync(p));
   }).listen(port, () => console.log(`Serving dist/ on http://localhost:${port}`));
 }
