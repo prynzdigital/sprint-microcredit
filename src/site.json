@@ -4,23 +4,37 @@
   "tagline": "Always Ahead",
   "url": "https://sprintmicrocredit.com",
   "foundingYear": "2019",
-  "founder": { "name": "Samuel Gbor", "title": "Chief Executive Officer" },
-  "phone": "059 211 1441",
-  "phoneIntl": "+233592111441",
-  "phoneDisplayIntl": "+233 59 211 1441",
+  "founder": {
+    "name": "Samuel Gbor",
+    "title": "Chief Executive Officer"
+  },
+  "phone": "030 804 8980",
+  "phoneIntl": "+233308048980",
+  "phoneDisplayIntl": "+233 30 804 8980",
   "whatsapp": "233592111441",
+  "whatsappDisplay": "059 211 1441",
   "email": "info@sprintmicrocredit.com",
   "address": {
-    "street": "Lakeside Estate",
-    "locality": "Ashaley Botwe",
+    "street": "306L Orinoco Close, Lakeside Estate",
+    "locality": "Ashale Botwe",
     "city": "Accra",
     "region": "Greater Accra",
     "country": "GH"
   },
-  "mapQuery": "Lakeside Estate, Ashaley Botwe, Accra, Ghana",
+  "mapQuery": "306L Orinoco Close, Lakeside Estate, Ashale Botwe, Accra, Ghana",
   "hoursLabel": "Mon – Fri, 8:00am – 5:00pm",
   "hours": [
-    { "days": ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday"], "opens": "08:00", "closes": "17:00" }
+    {
+      "days": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "08:00",
+      "closes": "17:00"
+    }
   ],
   "facebook": "https://www.facebook.com/sprintmicrocredit/",
   "linkedin": "https://gh.linkedin.com/company/sprint-micro-credit",
@@ -33,7 +47,9 @@
     "minMonths": 1,
     "maxMonths": 12,
     "defaultMonths": 6,
-    "monthlyRatePct": 5,
-    "rateNote": "Illustrative rate only. Your actual rate and fees are confirmed in writing in your offer before you sign."
+    "monthlyRatePct": 4.5,
+    "rateNote": "Based on our current rate, charged flat on the amount borrowed. Your exact rate, any fees and the total you repay are confirmed in writing before you sign.",
+    "affordComfortablePct": 30,
+    "affordStretchPct": 40
   }
 }

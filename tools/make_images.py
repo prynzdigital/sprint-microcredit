@@ -3,6 +3,7 @@
 Run once, or whenever branding changes:  python tools/make_images.py
 Writes into src/public/. Requires Pillow.
 """
+import json
 from pathlib import Path
 from PIL import Image, ImageDraw, ImageFont, ImageOps
 
@@ -95,7 +96,7 @@ def og_image():
     d.text((70, 322), "cash,", font=font(BLACK, 66), fill=WHITE)
     d.text((70, 394), "same day.", font=font(BLACK, 66), fill="#ffd9db")
     d.text((70, 492), "Quick loans for salaried workers", font=font(REG, 28), fill=WHITE)
-    d.text((70, 534), "059 211 1441", font=font(BOLD, 30), fill=WHITE)
+    d.text((70, 534), json.loads((ROOT / "src" / "site.json").read_text(encoding="utf-8"))["phone"], font=font(BOLD, 30), fill=WHITE)
     return im
 
 

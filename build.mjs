@@ -212,11 +212,26 @@ function build() {
 
   const year = String(new Date().getFullYear());
   const ghs = (n) => `GH₵${n.toLocaleString('en-US')}`;
-  const siteCtx = { ...site, year, logo: photos._logo, fmt: { min: ghs(site.calc.min), max: ghs(site.calc.max) }, waLink:`https://wa.me/${site.whatsapp}`, mapEmbed: encodeURIComponent(site.mapQuery) };
+  // Worked example for the "What you'll pay" section, always computed from the current rate
+  const ex = { P: 1000, n: 6 };
+  ex.interest = ex.P * (site.calc.monthlyRatePct / 100) * ex.n;
+  ex.total = ex.P + ex.interest;
+  const ghs2 = (n) => (Number.isInteger(n) ? ghs(n) : `GH₵${n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 })}`);
+  const fmt = {
+    min: ghs(site.calc.min), max: ghs(site.calc.max),
+    exP: ghs(ex.P), exN: ex.n, exInterest: ghs2(ex.interest), exTotal: ghs2(ex.total), exMonthly: ghs2(ex.total / ex.n),
+    exPct: +(site.calc.monthlyRatePct * ex.n).toFixed(2),
+  };
+  const siteCtx = { ...site, year, logo: photos._logo, fmt, waLink: `https://wa.me/${site.whatsapp}`, mapEmbed: encodeURIComponent(site.mapQuery) };
 
   // Client-side config is generated from site.json so numbers never drift.
   writeFileSync(join(OUT, 'assets/js/config.js'),
     `window.SPRINT=${JSON.stringify({ name: site.name, whatsapp: site.whatsapp, phoneIntl: site.phoneIntl, email: site.email, calc: site.calc, hours: site.hours })};\n`);
+
+  // Cache-busting: CSS/JS URLs carry a fingerprint of their contents, so they can be cached for a
+  // year yet any change is picked up immediately (see the Cache-Control rules in vercel.json).
+  const fingerprint = (rel) => createHash('sha256').update(readFileSync(join(OUT, rel))).digest('hex').slice(0, 10);
+  siteCtx.v = { css: fingerprint('assets/css/styles.css'), js: fingerprint('assets/js/main.js'), config: fingerprint('assets/js/config.js') };
 
   const pages = walk(join(SRC, 'pages')).filter((f) => f.endsWith('.html')).map(parsePage);
   const head = partial('head'), header = partial('header'), footer = partial('footer');

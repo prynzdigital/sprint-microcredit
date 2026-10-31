@@ -8,6 +8,8 @@
   const $$ = (sel, root = document) => [...root.querySelectorAll(sel)];
   const cedi = new Intl.NumberFormat('en-GH', { style: 'currency', currency: 'GHS', maximumFractionDigits: 0 });
   const cedi2 = new Intl.NumberFormat('en-GH', { style: 'currency', currency: 'GHS', minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  // Whole cedis when there are no pesewas, otherwise two decimals (e.g. GH₵270 but GH₵22.50)
+  const money = (v) => (Math.abs(v - Math.round(v)) < 0.005 ? cedi.format(Math.round(v)) : cedi2.format(v));
   const num = (v) => { const n = parseFloat(String(v).replace(/[^\d.]/g, '')); return Number.isFinite(n) ? n : 0; };
   const clamp = (v, lo, hi) => Math.min(hi, Math.max(lo, v));
   const months = (n) => `${n} month${n === 1 ? '' : 's'}`;
@@ -174,12 +176,13 @@
         } else {
           const pct = (r.monthly / s) * 100;
           fill.style.width = `${Math.min(100, pct)}%`;
-          meter.dataset.level = pct <= 30 ? 'ok' : pct <= 40 ? 'warn' : 'bad';
-          msg.textContent = pct <= 30
-            ? `Comfortable: repayment is ${pct.toFixed(0)}% of your take-home pay.`
-            : pct <= 40
-              ? `Stretching: ${pct.toFixed(0)}% of your pay. Consider a longer term or smaller amount.`
-              : `Too heavy: ${pct.toFixed(0)}% of your pay. We recommend keeping repayments under 30%.`;
+          const okPct = c.affordComfortablePct || 30, warnPct = c.affordStretchPct || 40;
+          meter.dataset.level = pct <= okPct ? 'ok' : pct <= warnPct ? 'warn' : 'bad';
+          msg.textContent = pct <= okPct
+            ? `Comfortable: this repayment is ${pct.toFixed(0)}% of your take-home pay.`
+            : pct <= warnPct
+              ? `Stretching: ${pct.toFixed(0)}% of your take-home pay. Consider a longer period or a smaller amount.`
+              : `Too heavy: ${pct.toFixed(0)}% of your take-home pay. We recommend keeping repayments under ${okPct}%.`;
         }
       }
 
@@ -211,8 +214,8 @@
       const r = Loan.flat(P, c.monthlyRatePct, n);
       summary.textContent = `${cedi.format(P)} over ${months(n)}`;
       k('monthly').textContent = cedi2.format(monthly);
-      k('interest').textContent = cedi.format(r.interest);
-      k('total').textContent = cedi.format(r.total);
+      k('interest').textContent = money(r.interest);
+      k('total').textContent = money(r.total);
       k('per100').textContent = cedi2.format((r.interest / P) * 100);
       if (apply) apply.href = `/apply/?amount=${P}&months=${n}`;
 
@@ -247,7 +250,8 @@
     ] },
     { id: 'bank', q: 'Is your salary paid into a bank account?', options: [['yes', 'Yes, it is', 'check'], ['no', 'No, cash or MoMo', 'cash']] },
     { id: 'card', q: 'Do you have a valid Ghana Card?', options: [['yes', 'Yes, I do', 'id'], ['no', 'Not yet', 'clock']] },
-    { id: 'docs', q: 'Can you get recent payslips and a bank statement?', options: [['yes', 'Yes, easily', 'doc'], ['no', 'I’m not sure', 'alert']] },
+    { id: 'docs', q: 'Can you get 6 months’ bank statements and 3 months’ payslips?', options: [['yes', 'Yes, easily', 'doc'], ['no', 'I’m not sure', 'alert']] },
+    { id: 'guarantor', q: 'Can you provide a guarantor and post-dated cheques?', options: [['yes', 'Yes, I can', 'family'], ['no', 'Not sure yet', 'alert']] },
   ];
 
   function initEligibility(root) {
@@ -277,7 +281,8 @@
       const missing = [];
       if (answers.bank === 'no') missing.push('a bank account that receives your salary');
       if (answers.card === 'no') missing.push('a valid Ghana Card (register at any NIA office)');
-      if (answers.docs === 'no') missing.push('your last 3 payslips and a recent bank statement (your HR and bank can provide these)');
+      if (answers.docs === 'no') missing.push('6 months’ bank statements and 3 months’ payslips (your bank and HR can provide these)');
+      if (answers.guarantor === 'no') missing.push('a guarantor and post-dated cheques covering your repayment period');
       let emoji, title, text, cta;
       if (answers.employer === 'self') {
         emoji = 'book'; title = 'Our loans are built for salaried workers';
@@ -289,6 +294,7 @@
         text = answers.employer === 'salaried'
           ? 'We mainly serve staff of financial institutions and SOEs, but we review other salaried workers too. Send us your details and we’ll confirm quickly.'
           : 'Staff of financial institutions and SOEs are exactly who we serve. Apply now and we aim to pay out the same day once your documents check out.';
+        text += ' Also have a passport-sized photo ready, and make sure your phone number is registered in your name.';
         cta = `<a class="btn btn-cta btn-lg" href="/apply/">Apply now</a>`;
       } else {
         emoji = 'doc'; title = 'Almost there: get these ready';

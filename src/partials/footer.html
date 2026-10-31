@@ -44,7 +44,8 @@
       <h3>Visit or call</h3>
       <address>
         {{site.address.street}}, {{site.address.locality}}<br>{{site.address.city}}, Ghana<br>
-        <a href="tel:{{site.phoneIntl}}">{{site.phoneDisplayIntl}}</a><br>
+        Call <a href="tel:{{site.phoneIntl}}">{{site.phoneDisplayIntl}}</a><br>
+        WhatsApp <a href="{{site.waLink}}" target="_blank" rel="noopener">{{site.whatsappDisplay}}</a><br>
         <a href="mailto:{{site.email}}">{{site.email}}</a><br>
         {{site.hoursLabel}}
       </address>

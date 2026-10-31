@@ -22,7 +22,7 @@
       <div class="card reveal"><span class="tag">Amount</span><h3>{{site.fmt.min}} – {{site.fmt.max}}</h3><p class="muted">Based on your salary and ability to repay.</p></div>
       <div class="card reveal"><span class="tag tag-alt">Term</span><h3>{{site.calc.minMonths}} – {{site.calc.maxMonths}} months</h3><p class="muted">Choose a monthly repayment that fits your budget.</p></div>
       <div class="card reveal"><span class="tag">Speed</span><h3>Same-day payout</h3><p class="muted">Once your documents are verified.</p></div>
-      <div class="card reveal"><span class="tag tag-alt">Clarity</span><h3>All costs upfront</h3><p class="muted">Rate, fees and total repayable in writing before you sign.</p></div>
+      <div class="card reveal"><span class="tag tag-alt">Rate</span><h3>{{site.calc.monthlyRatePct}}% per month</h3><p class="muted">Flat on the amount borrowed. <a href="#costs">See what you’ll pay</a>.</p></div>
     </div>
   </div>
 </section>
@@ -37,23 +37,55 @@
         <li>You earn a regular monthly salary paid into a bank account</li>
         <li>You work for a financial institution, an SOE, or another established employer</li>
         <li>Your repayments will fit comfortably within your take-home pay</li>
+        <li>You can provide a guarantor and post-dated cheques</li>
+        <li>Your phone number is registered in your own name</li>
       </ul>
     </div>
     <div class="card reveal">
-      <h2 class="h3" style="font-size:1.4rem">Documents to bring</h2>
+      <h2 class="h3" style="font-size:1.4rem">What you’ll need</h2>
       <ul class="checklist">
+        <li><strong>Bank statement</strong> for the last <strong>6 months</strong></li>
+        <li><strong>Payslips</strong> for the last <strong>3 months</strong></li>
         <li>Valid <strong>Ghana Card</strong></li>
-        <li>Your <strong>most recent payslips</strong> (usually the last 3 months)</li>
-        <li><strong>Bank statement</strong> showing your salary (usually 3–6 months)</li>
-        <li><strong>Staff ID</strong> card</li>
-        <li>Your active <strong>phone number</strong> (and MoMo number, if applicable)</li>
+        <li>A recent <strong>passport-sized photo</strong></li>
+        <li><strong>Post-dated cheques</strong> covering your repayment period (flexible terms)</li>
+        <li>A <strong>guarantor</strong></li>
       </ul>
-      <p class="field-hint">We may ask for one or two more items depending on your employer. We’ll tell you upfront.</p>
+      <p class="callout callout-brand" style="margin:16px 0 0"><strong>Please note:</strong> the phone number you give us must be registered in your own name.</p>
     </div>
   </div>
 </section>
 
-<section class="section">
+<section class="section" id="costs">
+  <div class="container">
+    <div class="section-head center reveal">
+      <span class="eyebrow">No hidden charges</span>
+      <h2>What you’ll pay, explained</h2>
+      <p class="lead">Every cedi you will repay is written in your loan agreement before you sign, and nothing is added afterwards.</p>
+    </div>
+    <div class="costs-grid">
+      <div class="costs-list reveal">
+        <div class="commit"><span class="icon"><!--icon trend--></span><div><h3>One clear rate</h3><p class="muted">{{site.calc.monthlyRatePct}}% per month, charged flat on the amount you borrow, for the length of your loan.</p></div></div>
+        <div class="commit"><span class="icon icon-alt"><!--icon doc--></span><div><h3>Everything in writing first</h3><p class="muted">Your agreement lists the rate, any fees, the total you will repay and every repayment date. You see it all before you sign.</p></div></div>
+        <div class="commit"><span class="icon"><!--icon shield--></span><div><h3>Nothing added later</h3><p class="muted">No surprise deductions or charges that weren’t in your agreement. Any charge for late payment is explained upfront too.</p></div></div>
+        <div class="commit"><span class="icon icon-alt"><!--icon calendar--></span><div><h3>Paying off early</h3><p class="muted">Want to settle sooner? Talk to us and we’ll confirm your settlement amount.</p></div></div>
+      </div>
+      <div class="cost-example reveal">
+        <span class="eyebrow">Worked example</span>
+        <h3>Borrow {{site.fmt.exP}} for {{site.fmt.exN}} months</h3>
+        <dl>
+          <div><dt>Amount you receive</dt><dd>{{site.fmt.exP}}</dd></div>
+          <div><dt>Interest ({{site.calc.monthlyRatePct}}% × {{site.fmt.exN}} months = {{site.fmt.exPct}}%)</dt><dd>{{site.fmt.exInterest}}</dd></div>
+          <div class="total"><dt>Total you repay</dt><dd>{{site.fmt.exTotal}}</dd></div>
+          <div><dt>Monthly repayment</dt><dd>{{site.fmt.exMonthly}}</dd></div>
+        </dl>
+        <a class="btn btn-cta btn-block" href="/loan-calculator/">Calculate your own loan <!--icon arrow--></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section-soft">
   <div class="container">
     <div class="section-head center reveal"><span class="eyebrow">Process</span><h2>How to get your loan</h2></div>
     <ol class="steps steps-row">
@@ -65,7 +97,7 @@
   </div>
 </section>
 
-<section class="section section-soft">
+<section class="section">
   <div class="container split">
     <div class="reveal">
       <span class="eyebrow">Our promise</span>
@@ -83,7 +115,7 @@
         <!--img src="staff-smile" alt="Confident Sprint Micro-Credit officer smiling with arms crossed" sizes="(min-width: 960px) 540px, 100vw" pos="50% 22%"-->
       </figure>
       <div class="callout callout-danger">
-      <p><strong>Beware of impostors.</strong> Sprint Micro-Credit will only contact you through {{site.phoneDisplayIntl}} or {{site.email}}. Never send money to anyone claiming to “release” your loan. <a href="/learn/avoid-loan-scams-in-ghana/">Learn to spot loan scams →</a></p>
+      <p><strong>Beware of impostors.</strong> Sprint Micro-Credit will only contact you on {{site.phoneDisplayIntl}}, our WhatsApp {{site.whatsappDisplay}} or {{site.email}}. Never send money to anyone claiming to “release” your loan. <a href="/learn/avoid-loan-scams-in-ghana/">Learn to spot loan scams →</a></p>
       </div>
     </div>
   </div>

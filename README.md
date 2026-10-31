@@ -47,16 +47,19 @@ Upload the contents of **`dist/`** to the web root (cPanel `public_html`, Netlif
 - **SEO:** unique titles and descriptions, canonical URLs, Open Graph and Twitter cards, `FinancialService`/`LocalBusiness`, `LoanOrCredit`, `FAQPage`, `Article` and `BreadcrumbList` schema, sitemap, clean URLs, `en-GH` locale and geo tags.
 - **Privacy-friendly:** no database, no cookies, no tracking. Form data only leaves the visitor's phone when they press Send.
 
-## ⚠️ Owner to confirm before launch
+## ⚠️ Owner to confirm
 
-These are placeholders or assumptions. Update them in `src/site.json` or the named page:
+Confirmed by the owner (Oct 2026): rate 4.5%/month, the requirements list, "Ghana Card required", the call number 030 804 8980 and the address 306L Orinoco Close, Lakeside Estate, Ashale Botwe.
 
-1. **Interest rate** used by the calculators: `calc.monthlyRatePct` (currently an *illustrative* 5%/month flat). The site labels this as an estimate.
-2. **Loan limits and term:** `calc.min` / `calc.max` (GH₵500–20,000) and `minMonths` / `maxMonths` (1–12).
-3. **Office hours:** `hoursLabel` and `hours` (currently Mon–Fri 8am–5pm).
-4. **Required documents:** `src/pages/loans.html` → "Documents to bring".
-5. **Licence and registration:** add your Bank of Ghana licence number, if applicable, to the About page and footer. MCAG membership is taken from the 2023 MCAG good-standing list.
-6. **Claims** such as "no hidden charges" and "same-day payout": keep them only if they hold in practice.
+Still assumptions. Update them in `src/site.json` or the named page:
+
+1. **WhatsApp number:** `whatsapp` / `whatsappDisplay` (still 059 211 1441). Every apply and contact form sends to this number.
+2. **Rate basis:** 4.5% is treated as *flat per month on the amount borrowed*. If it's charged differently, the calculators and the "What you'll pay" example need changing.
+3. **Affordability guideline:** `calc.affordComfortablePct` (30) and `calc.affordStretchPct` (40). This is a general guide, not Sprint's lending rule; set your own thresholds here.
+4. **Loan limits and term:** `calc.min` / `calc.max` (GH₵500–20,000) and `minMonths` / `maxMonths` (1–12).
+5. **Office hours:** `hoursLabel` and `hours` (Mon–Fri 8am–5pm, weekends shown as closed). If you change them, also update the two weekend rows in the hours table on the Contact page.
+6. **Licence and registration:** add your Bank of Ghana licence number, if applicable. MCAG membership is taken from the 2023 MCAG good-standing list.
+7. **Claims** such as "same-day payout" and "no hidden charges": keep them only if they hold in practice.
 
 ## After launch
 

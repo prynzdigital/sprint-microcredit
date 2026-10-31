@@ -68,9 +68,9 @@
       <div class="card card-hover reveal"><div class="icon"><!--icon calendar--></div><h3>Monthly repayment</h3><p class="muted">What leaves your account each payday, for the whole repayment period.</p></div>
       <div class="card card-hover reveal"><div class="icon icon-alt"><!--icon trend--></div><h3>Interest</h3><p class="muted">The cost of borrowing, on top of the amount you receive.</p></div>
       <div class="card card-hover reveal"><div class="icon"><!--icon cash--></div><h3>Total to repay</h3><p class="muted">Amount borrowed plus interest. Always compare this number between lenders.</p></div>
-      <div class="card card-hover reveal"><div class="icon icon-alt"><!--icon wallet--></div><h3>Affordability</h3><p class="muted">Keep all loan repayments under about 30% of your take-home pay.</p></div>
+      <div class="card card-hover reveal"><div class="icon icon-alt"><!--icon wallet--></div><h3>Affordability</h3><p class="muted">Keep all loan repayments under about {{site.calc.affordComfortablePct}}% of your take-home pay (salary after deductions).</p></div>
     </div>
-    <div class="callout callout-brand reveal" style="max-width:820px;margin-inline:auto"><p>These estimates use a <strong>flat</strong> monthly rate of {{site.calc.monthlyRatePct}}% for illustration. Not sure what “flat” means? Read <a href="/learn/flat-rate-vs-reducing-balance/">flat rate vs reducing balance</a>.</p></div>
+    <div class="callout callout-brand reveal" style="max-width:820px;margin-inline:auto"><p>These estimates use our current rate of <strong>{{site.calc.monthlyRatePct}}% per month, flat</strong>. Not sure what “flat” means? Read <a href="/learn/flat-rate-vs-reducing-balance/">flat rate vs reducing balance</a>.</p></div>
   </div>
 </section>
 
@@ -83,8 +83,8 @@
       <a class="btn btn-wa" href="{{site.waLink}}?text=Hello%20Sprint%2C%20can%20you%20help%20me%20with%20my%20loan%20estimate%3F" target="_blank" rel="noopener"><!--icon chat--> Ask on WhatsApp</a>
     </div>
     <div class="faq">
-      <details class="faq-item"><summary>Is this the exact amount I will pay?</summary><div><p>It’s an estimate using an illustrative rate of {{site.calc.monthlyRatePct}}% per month. Your exact rate, fees and total repayable are confirmed in writing in your offer before you sign.</p></div></details>
-      <details class="faq-item"><summary>How much of my salary should go to loan repayments?</summary><div><p>As a rule of thumb, keep all your loan repayments together under about 30% of your take-home pay, so you still cover rent, food, transport and savings.</p></div></details>
+      <details class="faq-item"><summary>Is this the exact amount I will pay?</summary><div><p>It uses our current rate of {{site.calc.monthlyRatePct}}% per month, charged flat on the amount borrowed. Your exact rate, any fees and the total you repay are confirmed in writing before you sign.</p></div></details>
+      <details class="faq-item"><summary>How much of my salary should go to loan repayments?</summary><div><p>As a guide, keep all your loan repayments together (including any other loans) under about {{site.calc.affordComfortablePct}}% of your take-home pay, meaning your salary after tax, SSNIT and other deductions. That leaves enough for rent, food, transport and savings. For example, on GH₵4,000 take-home pay, aim for repayments under GH₵1,200 a month. We confirm affordability with you when you apply.</p></div></details>
       <details class="faq-item"><summary>Does a longer repayment period cost more?</summary><div><p>Usually, yes. A longer period lowers each monthly payment but increases the total interest you pay. Choose the shortest period you can comfortably afford.</p></div></details>
       <details class="faq-item"><summary>What does “cost per GH₵100” mean?</summary><div><p>It’s the interest you pay for every GH₵100 you borrow over the whole loan. It makes it easy to compare different amounts and repayment periods.</p></div></details>
     </div>

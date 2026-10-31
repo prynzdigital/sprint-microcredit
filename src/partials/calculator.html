@@ -23,6 +23,7 @@
     <label for="calc-salary" class="small">Your monthly take-home pay</label>
     <div class="input-prefix" style="margin-top:6px"><span>GH₵</span><input id="calc-salary" class="input" type="number" inputmode="numeric" min="0" placeholder="e.g. 4,500" data-salary></div>
     <div class="meter" data-meter data-level="ok"><div class="meter-track"><div class="meter-fill"></div></div><p class="meter-msg">Enter your monthly take-home pay to check affordability.</p></div>
+    <p class="afford-how"><strong>How this works:</strong> we divide the monthly repayment by your take-home pay (your salary after tax, SSNIT and other deductions). Up to {{site.calc.affordComfortablePct}}% is comfortable, {{site.calc.affordComfortablePct}}–{{site.calc.affordStretchPct}}% is a stretch, and above {{site.calc.affordStretchPct}}% leaves too little for rent, food and transport. If you already repay other loans, add them to this figure. It’s a guide only; we confirm affordability with you when you apply.</p>
   </details>
   <div class="result" aria-live="polite">
     <div class="result-top">

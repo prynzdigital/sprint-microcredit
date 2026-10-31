@@ -1030,6 +1030,21 @@ picture { display: block; }
 .creds li { font-size: .74rem; font-weight: 700; background: var(--brand-50); color: var(--brand-ink); padding: 5px 10px; border-radius: 999px; }
 .leader-meta .creds { margin: 0; }
 
+/* Loans page: what you'll pay */
+.costs-grid { display: grid; gap: 16px; align-items: start; }
+.costs-list { display: grid; gap: 12px; }
+.cost-example { background: #fff; border: 1px solid var(--line); border-radius: 24px; padding: 24px; box-shadow: var(--shadow-lg); }
+.cost-example h3 { font-size: 1.35rem; margin-bottom: 16px; }
+.cost-example dl { margin: 0 0 20px; display: grid; gap: 2px; }
+.cost-example dl > div { display: flex; justify-content: space-between; gap: 12px; padding: 12px 0; border-bottom: 1px dashed var(--line); }
+.cost-example dt { color: var(--muted); font-size: .92rem; }
+.cost-example dd { margin: 0; font-weight: 800; font-variant-numeric: tabular-nums; white-space: nowrap; }
+.cost-example .total dt { color: var(--ink); font-weight: 700; }
+.cost-example .total dd { color: var(--brand); font-family: var(--display); font-size: 1.3rem; }
+.hero-trust a { color: inherit; text-decoration: none; display: inline-flex; align-items: center; gap: 6px; }
+.hero-trust a:hover { text-decoration: underline; }
+.afford-how { font-size: .78rem; color: var(--muted); line-height: 1.5; margin: 10px 0 0; }
+
 /* Visit list (dark office-tour section) */
 .visit-list { list-style: none; padding: 0; margin: 22px 0 26px; display: grid; gap: 12px; }
 .visit-list li { display: flex; align-items: center; gap: 14px; color: #fff; font-weight: 600; }
@@ -1184,6 +1199,8 @@ picture { display: block; }
   .collage .c-small { right: -24px; width: 46%; }
   .c-badge { left: -18px; bottom: 34px; }
   .mv-card { padding: 40px; }
+  .costs-grid { grid-template-columns: 1.15fr .85fr; gap: 24px; }
+  .cost-example { padding: 32px; position: sticky; top: 110px; }
   .office { grid-template-columns: 420px 1fr; }
   .office-card { padding: 40px; }
   .office-map, .office-map iframe { min-height: 100%; }
