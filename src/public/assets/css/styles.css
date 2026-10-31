@@ -824,6 +824,7 @@ tbody tr:last-child td { border-bottom: 0; }
   padding-block: 20px 28px; font-size: .85rem; color: #a8999b;
 }
 .footer-bottom p { margin: 0; }
+.footer-credit a { color: #fff; font-weight: 700; }
 
 /* Mobile action bar */
 .action-bar {
