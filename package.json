@@ -1,0 +1,12 @@
+{
+  "name": "sprint-microcredit",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Sprint Micro-Credit website (static, zero-dependency build)",
+  "type": "module",
+  "scripts": {
+    "build": "node build.mjs",
+    "dev": "node build.mjs --serve"
+  },
+  "engines": { "node": ">=18" }
+}
