@@ -138,7 +138,7 @@
   // Loan calculator -----------------------------------------------------------
   function initCalculator(root) {
     const c = CFG.calc;
-    const amount = $('[data-amount]', root), term = $('[data-months]', root), salary = $('[data-salary]', root);
+    const amount = $('[data-amount]', root), term = $('[data-months]', root), salary = $('[data-salary]', root), liability = $('[data-liability]', root);
     const out = (k) => $(`[data-out="${k}"]`, root);
     const params = new URLSearchParams(location.search);
 
@@ -169,26 +169,28 @@
 
       const meter = $('[data-meter]', root);
       if (meter && salary) {
-        const s = num(salary.value);
+        const s = num(salary.value), owed = liability ? num(liability.value) : 0;
         const fill = $('.meter-fill', meter), msg = $('.meter-msg', meter);
         if (!s) {
           meter.dataset.level = 'ok'; fill.style.width = '0'; msg.textContent = 'Enter your monthly take-home pay to check affordability.';
         } else {
-          const pct = (r.monthly / s) * 100;
-          fill.style.width = `${Math.min(100, pct)}%`;
-          const okPct = c.affordComfortablePct || 30, warnPct = c.affordStretchPct || 40;
-          meter.dataset.level = pct <= okPct ? 'ok' : pct <= warnPct ? 'warn' : 'bad';
-          msg.textContent = pct <= okPct
-            ? `Comfortable: this repayment is ${pct.toFixed(0)}% of your take-home pay.`
-            : pct <= warnPct
-              ? `Stretching: ${pct.toFixed(0)}% of your take-home pay. Consider a longer period or a smaller amount.`
-              : `Too heavy: ${pct.toFixed(0)}% of your take-home pay. We recommend keeping repayments under ${okPct}%.`;
+          const limit = c.affordLimitPct || 50, warn = c.affordWarnPct || limit - 5;
+          const pct = ((r.monthly + owed) / s) * 100;
+          const room = Math.max(0, (s * limit) / 100 - owed);
+          const parts = owed ? `this loan plus your other loans come to ${pct.toFixed(0)}%` : `this repayment is ${pct.toFixed(0)}%`;
+          fill.style.width = `${Math.min(100, (pct / limit) * 100)}%`;
+          meter.dataset.level = pct <= warn ? 'ok' : pct <= limit ? 'warn' : 'bad';
+          msg.textContent = pct <= warn
+            ? `Within our guide: ${parts} of your take-home pay (limit ${limit}%).`
+            : pct <= limit
+              ? `Close to the limit: ${parts} of your take-home pay (limit ${limit}%).`
+              : `Above our ${limit}% limit: ${parts} of your take-home pay. Try a smaller amount or a longer period; up to ${cedi.format(room)} a month would fit.`;
         }
       }
 
       document.dispatchEvent(new CustomEvent('sprint:loan', { detail: { P, n, monthly: r.monthly } }));
     }
-    [amount, term, salary].forEach((el) => el && el.addEventListener('input', update));
+    [amount, term, salary, liability].forEach((el) => el && el.addEventListener('input', update));
     $$('[data-preset]', root).forEach((b) => b.addEventListener('click', () => { amount.value = b.dataset.preset; update(); }));
     update();
   }
@@ -541,7 +543,7 @@
   const QUIZ = [
     { q: 'You borrow GH₵1,000 at 5% per month “flat” for 6 months. How much interest do you pay?', o: ['GH₵50', 'GH₵300', 'GH₵500'], a: 1, e: 'Flat interest is charged on the original amount every month: 1,000 × 5% × 6 = GH₵300.' },
     { q: 'A “loan officer” on WhatsApp asks for a GH₵200 “processing fee” by MoMo before releasing your loan. What should you do?', o: ['Pay quickly so you don’t lose the offer', 'Stop. Verify the lender through official contacts', 'Send half now, half later'], a: 1, e: 'Upfront-fee requests from strangers are a classic loan scam. Always verify through the lender’s official phone number and office.' },
-    { q: 'What share of your take-home pay should loan repayments ideally stay under?', o: ['About 30%', 'About 60%', 'It doesn’t matter'], a: 0, e: 'Keeping all debt repayments under about 30% of take-home pay leaves room for rent, food, transport and savings.' },
+    { q: 'At Sprint, all your loan repayments together should stay within what share of your take-home pay?', o: ['Half (50%)', 'About 80%', 'It doesn’t matter'], a: 0, e: 'Your new loan plus any loans not on your payslip should stay within 50% of take-home pay. Staying below that leaves room for rent, food, transport and savings.' },
     { q: 'How big should an emergency fund be for most salaried workers?', o: ['One week of pay', '3 to 6 months of essential expenses', 'Exactly GH₵1,000'], a: 1, e: 'Aim for 3 months of essential costs first, then build to 6 months. Start small. Even GH₵50 a week adds up.' },
     { q: 'Which is usually the smartest reason to take a short-term loan?', o: ['A genuine emergency or an investment that pays back', 'A party to impress friends', 'Repaying another loan you can’t afford'], a: 0, e: 'Borrow for needs and for things that earn or save you money. Borrowing to repay other debt can trap you in a cycle, so talk to your lender first.' },
     { q: 'Before signing any loan agreement, you should confirm…', o: ['Only the monthly payment', 'Total cost, interest rate, fees and penalties', 'Nothing. Sign fast!'], a: 1, e: 'Always ask for the total amount you’ll repay, the rate, all fees and late-payment charges, in writing.' },

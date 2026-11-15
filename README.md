@@ -49,13 +49,13 @@ Upload the contents of **`dist/`** to the web root (cPanel `public_html`, Netlif
 
 ## ⚠️ Owner to confirm
 
-Confirmed by the owner (Oct 2026): rate 4.5%/month, the requirements list, "Ghana Card required", the call number 030 804 8980 and the address 306L Orinoco Close, Lakeside Estate, Ashale Botwe.
+Confirmed by the owner (Oct 2026): rate 4.5%/month, the requirements list, "Ghana Card required", the call number 030 804 8980 and the address 306L Orinoco Close, Lakeside Estate, Ashale Botwe. Confirmed by the credit manager (Nov 2026): affordability limit 50% of take-home pay, including loans not on the payslip (`calc.affordLimitPct`; `affordWarnPct` sets where the meter turns amber), and final approval by the credit committee.
 
 Still assumptions. Update them in `src/site.json` or the named page:
 
 1. **WhatsApp number:** `whatsapp` / `whatsappDisplay` (still 059 211 1441). Every apply and contact form sends to this number.
 2. **Rate basis:** 4.5% is treated as *flat per month on the amount borrowed*. If it's charged differently, the calculators and the "What you'll pay" example need changing.
-3. **Affordability guideline:** `calc.affordComfortablePct` (30) and `calc.affordStretchPct` (40). This is a general guide, not Sprint's lending rule; set your own thresholds here.
+3. **Repayment charges (Hubtel):** the "Understanding loan repayment charges" guide deliberately names no provider and no fee. Once the Hubtel package and charges are confirmed, add the figure there if wanted.
 4. **Loan limits and term:** `calc.min` / `calc.max` (GH₵500–20,000) and `minMonths` / `maxMonths` (1–12).
 5. **Office hours:** `hoursLabel`, `hoursTimes` and `hours` (Mon–Fri 8:30am–5pm, weekends shown as closed). If weekend hours change, also update the two weekend rows in the hours table on the Contact page.
 6. **Licence and registration:** add your Bank of Ghana licence number, if applicable. MCAG membership is taken from the 2023 MCAG good-standing list.

@@ -50,7 +50,7 @@
     "defaultMonths": 6,
     "monthlyRatePct": 4.5,
     "rateNote": "Based on our current rate, charged flat on the amount borrowed. Your exact rate, any fees and the total you repay are confirmed in writing before you sign.",
-    "affordComfortablePct": 30,
-    "affordStretchPct": 40
+    "affordLimitPct": 50,
+    "affordWarnPct": 45
   }
 }

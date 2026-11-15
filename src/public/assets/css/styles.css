@@ -535,6 +535,10 @@ textarea.input { min-height: 96px; resize: vertical; }
 .afford[open] { border-style: solid; padding-bottom: 12px; }
 .afford[open] summary::after { content: "–"; }
 .afford .meter { margin-top: 8px; }
+.afford-label { display: block; margin-top: 12px; }
+.afford-hint { font-size: .76rem; color: var(--muted); margin: 5px 0 0; }
+.afford-note { display: flex; align-items: center; gap: 7px; margin: 10px 0 0; padding: 8px 10px; border-radius: 10px; background: var(--alt-50); color: var(--brand-ink); font-size: .8rem; font-weight: 700; }
+.afford-note svg { width: 16px; height: 16px; flex: none; color: var(--brand); }
 
 /* Result panel with principal-vs-interest donut */
 .result {
